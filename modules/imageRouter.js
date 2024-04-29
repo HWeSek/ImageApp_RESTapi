@@ -1,8 +1,8 @@
-import files_array from "./model.js";
+import { files_array } from "./model.js";
 import jsonController from "./jsonController.js";
 import fileController from "./fileController.js";
 
-const router = async (request, response) => {
+const imageRouter = async (request, response) => {
     console.log(request.url, request.method);
     switch (request.method) {
         case "GET":
@@ -95,4 +95,4 @@ const router = async (request, response) => {
     }
 }
 
-export default router
+export default imageRouter

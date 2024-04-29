@@ -1,4 +1,4 @@
-import files_array from "./model.js";
+import { files_array } from "./model.js";
 import getRequestData from "./utils.js";
 
 const jsonController = {

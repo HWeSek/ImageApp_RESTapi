@@ -1,0 +1,23 @@
+GET http://localhost:3000/api/tags/raw HTTP/1.1
+###
+GET http://localhost:3000/api/tags HTTP/1.1
+###
+GET http://localhost:3000/api/tags/3 HTTP/1.1
+
+
+###
+POST http://localhost:3000/api/tags HTTP/1.1
+
+{
+    "value": "#hjads"
+}
+
+
+
+###
+PATCH http://localhost:3000/api/photos/tags  HTTP/1.1
+###
+PATCH http://localhost:3000/api/photos/tags/mass HTTP/1.1
+###
+GET http://localhost:3000/api/photos/tags/12345 HTTP/1.1
+

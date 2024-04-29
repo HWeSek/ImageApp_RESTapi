@@ -1,7 +1,7 @@
 import formidable from "formidable";
 import path, { resolve } from "path";
 import { rename, existsSync, mkdir } from "fs";
-import files_array from "./model.js";
+import { files_array } from "./model.js";
 
 const fileController = {
 

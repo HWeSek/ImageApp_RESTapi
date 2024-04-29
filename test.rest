@@ -23,7 +23,7 @@ GET http://localhost:3000/api/photos HTTP/1.1
 DELETE http://localhost:3000/api/photos/1712664982600 HTTP/1.1
 
 ### PATCH - updatuj wg id
-PATCH  http://localhost:3000/api/photos/1713270500314 HTTP/1.1
+PATCH  http://localhost:3000/api/photos/1714375541441 HTTP/1.1
 
 {
 "test": "dzik",
