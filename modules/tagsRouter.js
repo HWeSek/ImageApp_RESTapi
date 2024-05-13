@@ -21,11 +21,12 @@ const tagsRouter = async (request, response) => {
             } else if (new RegExp('^\/api\/tags\/[0-9]+').test(request.url)) {
                 let values = request.url.match('^\/api\/tags\/([0-9]+)');
                 let id = values[1];
-                try {
+                let data = JSON.stringify(tags_array.find(file => file.id == id));
+                if(data){
                     response.writeHead(200, "Content-Type: application/json;charset=utf-8")
-                    response.write(JSON.stringify(tags_array.find(file => file.id == id), null, 3));
+                    response.write(data, null, 3);
                     response.end()
-                } catch (error) {
+                }else{
                     response.writeHead(404, "Content-Type: application/json;charset=utf-8")
                     response.write(JSON.stringify({ status: 404, message: `file with id ${id} not found` }, null, 3));
                     response.end()
