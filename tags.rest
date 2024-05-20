@@ -9,7 +9,7 @@ GET http://localhost:3000/api/tags/3 HTTP/1.1
 POST http://localhost:3000/api/tags HTTP/1.1
 
 {
-    "value": "#hjads"
+    "value": "#raz"
 }
 
 
