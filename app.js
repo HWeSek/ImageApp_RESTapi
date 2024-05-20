@@ -8,7 +8,7 @@ import filtersRouter from "./modules/filtersRouter.js";
 const __dirname = path.resolve();
 
 const PORT = 3000;
-createServer((req, res) => {
+createServer(async (req, res) => {
     //images
 
     if (req.url.search("/api/photos") != -1) {

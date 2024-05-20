@@ -23,7 +23,7 @@ GET http://localhost:3000/api/photos HTTP/1.1
 DELETE http://localhost:3000/api/photos/1715601865229 HTTP/1.1
 
 ### PATCH - updatuj wg id
-PATCH  http://localhost:3000/api/photos/1714375541441 HTTP/1.1
+PATCH  http://localhost:3000/api/photos/1716215272737 HTTP/1.1
 
 {
 "test": "dzik",
@@ -32,7 +32,7 @@ PATCH  http://localhost:3000/api/photos/1714375541441 HTTP/1.1
 
 ###
 
-POST http://localhost:3000/api/photos/tags/1715607129936 HTTP/1.1
+POST http://localhost:3000/api/photos/tags/1716215629226 HTTP/1.1
 
 {
     "value": "#kekw"
@@ -40,7 +40,7 @@ POST http://localhost:3000/api/photos/tags/1715607129936 HTTP/1.1
 
 ########
 
-POST http://localhost:3000/api/photos/tags/mass/1715607129936 HTTP/1.1
+POST http://localhost:3000/api/photos/tags/mass/1716215665241 HTTP/1.1
 
 {
     "value": ["#raz", "#dwa"]
