@@ -1,0 +1,2 @@
+####
+GET http://localhost:3000/api/filters/metadata/1716216648373 HTTP/1.1

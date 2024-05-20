@@ -10,7 +10,11 @@ const fileController = {
             mkdir(path.join(path.resolve(), 'temp'), (err) => {
             })
         }
-        
+        if (!existsSync(path.join(path.resolve(), 'upload'))) {
+            mkdir(path.join(path.resolve(), 'upload'), (err) => {
+            })
+        }
+
         let form = formidable({});
         form.keepExtensions = true;
         form.uploadDir = path.join(path.resolve(), 'temp')

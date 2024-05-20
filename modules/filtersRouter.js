@@ -13,10 +13,11 @@ const filtersRouter = async (request, response) => {
             } else if (new RegExp('^\/api\/filters\/metadata\/[0-9]+').test(request.url)) {
                 let values = request.url.match('^\/api\/filters\/metadata\/([0-9]+)');
                 let id = values[1];
-                let data = JSON.stringify(files_array.find(file => file.id == id));
-                if (data) {
+                let file = files_array.find(file => file.id == id);
+                if (file) {
+                    let output = await filtersController.getMetadata(file.url);
                     response.writeHead(200, "Content-Type: application/json;charset=utf-8")
-                    response.write(data, null, 3);
+                    response.write(JSON.stringify(output, null, 4), null, 3);
                     response.end()
                 } else {
                     response.writeHead(404, "Content-Type: application/json;charset=utf-8")

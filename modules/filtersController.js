@@ -1,5 +1,6 @@
 import { files_array, tags_array } from "./model.js";
 import getRequestData from "./utils.js";
+import sharp from "sharp";
 
 const filtersController = {
     getMetadata: async (path) => {
