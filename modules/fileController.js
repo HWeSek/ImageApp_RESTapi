@@ -6,6 +6,11 @@ import { files_array } from "./model.js";
 const fileController = {
 
     saveFile: async (req, res) => {
+        if (!existsSync(path.join(path.resolve(), 'temp'))) {
+            mkdir(path.join(path.resolve(), 'temp'), (err) => {
+            })
+        }
+        
         let form = formidable({});
         form.keepExtensions = true;
         form.uploadDir = path.join(path.resolve(), 'temp')
@@ -25,7 +30,8 @@ const fileController = {
                         lastChange: 'original',
                         history: [
                             { status: 'original', oldUrl: path.join(path.resolve(), 'upload', fields.album, files.file.path.split('\\').pop()), lastModifiedDate: time }
-                        ]
+                        ],
+                        tags: []
                     })
                 })
                 if (err) {
