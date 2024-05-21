@@ -15,7 +15,7 @@ const filtersRouter = async (request, response) => {
                 const file = files_array.find(file => file.id == id);
                 if (file) {
                     const output = await filtersController.getMetadata(file.url);
-                    response.writeHead(200, "Content-Type: application/json;charset=utf-8")
+                    response.writeHead(200, "Content-Type: image/png")
                     response.write(JSON.stringify(output, null, 4), null, 3);
                     response.end()
                 } else {

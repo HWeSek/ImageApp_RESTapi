@@ -1,5 +1,5 @@
 ####
-GET http://localhost:3000/api/filters/metadata/1716290967036 HTTP/1.1
+GET http://localhost:3000/api/filters/metadata/1716314793264 HTTP/1.1
 
 ####
 GET http://localhost:3000/api/getimage/1716290967036 HTTP/1.1
@@ -9,13 +9,14 @@ GET http://localhost:3000/api/getimage/1716290967036 HTTP/1.1
 PATCH http://localhost:3000/api/filters HTTP/1.1
 
 {   
-  "id":1716294829402,
+  "id":1716314793264,
   "filter": "negate",
   "rotate": 157,
-  "rgb": {"r": 23, "g": 20, "b": 50}
+  "rgb": {"r": 23, "g": 20, "b": 50},
+  "size": {"width": 50, "height": 50, "top": 0, "left": 0}
 }
 
 ####
-GET http://localhost:3000/api/getimage/1716294748372/filter/tint HTTP/1.1
+GET http://localhost:3000/api/getimage/1716314793264/filter/negate HTTP/1.1
 
 

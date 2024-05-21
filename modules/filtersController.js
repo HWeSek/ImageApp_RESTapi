@@ -1,5 +1,5 @@
 import { files_array, tags_array } from "./model.js";
-import { readFileSync } from "fs";
+import { readFile } from "fs";
 import getRequestData from "./utils.js";
 import sharp from "sharp";
 
@@ -51,6 +51,16 @@ const filtersController = {
                             .tint(data.rgb)
                             .toFile(new_url)
                         break;
+                    case "resize":
+                        await sharp(file.url)
+                            .resize({ width: data.size.width, height: data.size.height })
+                            .toFile(new_url)
+                        break;
+                    case "crop":
+                        await sharp(file.url)
+                            .extract({ width: data.size.width, height: data.size.height, top: data.size.top, left: data.size.left })
+                            .toFile(new_url)
+                        break;
                     case "negate":
                         await sharp(file.url)
                             .negate()
@@ -93,19 +103,26 @@ const filtersController = {
             res.end()
         }
     },
-    getFilteredImage: async (res, id, name) => {
+    getFilteredImage: async (res, id, type) => {
         const file = files_array.find(file => file.id == id);
         if (file) {
             let array = file.url.split("\\")
             let name = array.pop()
-            let to_read = name.split(".")[0] + "-" + name + '.' + name.split(".")[1];
+            let to_read = name.split(".")[0] + "-" + type + '.' + name.split(".")[1];
             array.push(to_read)
             const new_url = array.join('\\\\');
-            const image = readFileSync(new_url);
-            console.log(new_url);
-            res.writeHead(200, "Content-Type: application/json;charset=utf-8")
-            res.write(image, null, 3);
-            res.end()
+            readFile(new_url, (err, data) => {
+                if (!err) {
+                    res.writeHead(200, "Content-Type: image/png")
+                    res.write(data, null, 3);
+                    res.end()
+                } else {
+                    res.writeHead(404, "Content-Type: application/json;charset=utf-8")
+                    res.write(JSON.stringify({ status: 404, message: `No such file` }, null, 3));
+                    res.end()
+                }
+
+            })
         } else {
             res.writeHead(404, "Content-Type: application/json;charset=utf-8")
             res.write(JSON.stringify({ status: 404, message: `file with id ${id} not found` }, null, 3));
