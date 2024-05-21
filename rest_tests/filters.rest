@@ -1,0 +1,21 @@
+####
+GET http://localhost:3000/api/filters/metadata/1716290967036 HTTP/1.1
+
+####
+GET http://localhost:3000/api/getimage/1716290967036 HTTP/1.1
+
+#####
+
+PATCH http://localhost:3000/api/filters HTTP/1.1
+
+{   
+  "id":1716294829402,
+  "filter": "negate",
+  "rotate": 157,
+  "rgb": {"r": 23, "g": 20, "b": 50}
+}
+
+####
+GET http://localhost:3000/api/getimage/1716294748372/filter/tint HTTP/1.1
+
+

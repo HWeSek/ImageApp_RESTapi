@@ -61,26 +61,6 @@ const imageRouter = async (request, response) => {
                 response.write(JSON.stringify(data, null, 3));
                 response.end()
 
-            } else if (new RegExp('^\/api\/photos\/tags\/mass\/[0-9]+').test(request.url)) {
-                let values = request.url.match('^\/api\/photos\/tags\/mass\/([0-9]+)');
-                let id = values[1];
-                if (files_array.indexOf(files_array.find(file => file.id == id)) != -1) {
-                    jsonController.addTagMass(id, request, response);
-                } else {
-                    response.writeHead(404, "Content-Type: application/json;charset=utf-8")
-                    response.write(JSON.stringify({ status: 404, message: `file with id ${id} not found` }, null, 3));
-                    response.end()
-                }
-            } else if (new RegExp('^\/api\/photos\/tags\/[0-9]+').test(request.url)) {
-                let values = request.url.match('^\/api\/photos\/tags\/([0-9]+)');
-                let id = values[1];
-                if (files_array.indexOf(files_array.find(file => file.id == id)) != -1) {
-                    jsonController.addTag(id, request, response);
-                } else {
-                    response.writeHead(404, "Content-Type: application/json;charset=utf-8")
-                    response.write(JSON.stringify({ status: 404, message: `file with id ${id} not found` }, null, 3));
-                    response.end()
-                }
             } else {
                 response.writeHead(404, "Content-type: application/json;charset=utf-8")
                 response.write(JSON.stringify({ status: 404, message: `route does not exist` }, null, 3));
@@ -123,6 +103,26 @@ const imageRouter = async (request, response) => {
                     response.end()
                 }
 
+            } else if (new RegExp('^\/api\/photos\/tags\/mass\/[0-9]+').test(request.url)) {
+                let values = request.url.match('^\/api\/photos\/tags\/mass\/([0-9]+)');
+                let id = values[1];
+                if (files_array.indexOf(files_array.find(file => file.id == id)) != -1) {
+                    jsonController.addTagMass(id, request, response);
+                } else {
+                    response.writeHead(404, "Content-Type: application/json;charset=utf-8")
+                    response.write(JSON.stringify({ status: 404, message: `file with id ${id} not found` }, null, 3));
+                    response.end()
+                }
+            } else if (new RegExp('^\/api\/photos\/tags\/[0-9]+').test(request.url)) {
+                let values = request.url.match('^\/api\/photos\/tags\/([0-9]+)');
+                let id = values[1];
+                if (files_array.indexOf(files_array.find(file => file.id == id)) != -1) {
+                    jsonController.addTag(id, request, response);
+                } else {
+                    response.writeHead(404, "Content-Type: application/json;charset=utf-8")
+                    response.write(JSON.stringify({ status: 404, message: `file with id ${id} not found` }, null, 3));
+                    response.end()
+                }
             } else {
                 response.writeHead(404, "Content-type: application/json;charset=utf-8")
                 response.write(JSON.stringify({ status: 404, message: `route does not exist` }, null, 3));

@@ -24,5 +24,11 @@ createServer(async (req, res) => {
     else if (req.url.search("/api/filters") != -1) {
         await filtersRouter(req, res)
     }
+
+    else if (req.url.search("/api/getimage") != -1) {
+        await filtersRouter(req, res)
+    }
+
+
 })
     .listen(PORT, () => console.log("Serwer działa na porcie ", PORT))

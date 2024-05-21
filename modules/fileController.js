@@ -33,7 +33,7 @@ const fileController = {
                         url: path.join(path.resolve(), 'upload', fields.album, files.file.path.split('\\').pop()),
                         lastChange: 'original',
                         history: [
-                            { status: 'original', oldUrl: path.join(path.resolve(), 'upload', fields.album, files.file.path.split('\\').pop()), lastModifiedDate: time }
+                            { status: 'original', url: path.join(path.resolve(), 'upload', fields.album, files.file.path.split('\\').pop()), lastModifiedDate: time }
                         ],
                         tags: []
                     })

@@ -5,7 +5,7 @@ Content-Type: multipart/form-data; boundary=----FormBoundary1234
 Content-Disposition: form-data; name="file"; filename="input.png"
 Content-Type: image/png
 
-< ./input.png
+< ./w.jpg
 
 ------FormBoundary1234
 Content-Disposition: form-data; name="album"
@@ -20,27 +20,27 @@ GET http://localhost:3000/api/photos HTTP/1.1
 
 
 ### DELETE - usuń wg id
-DELETE http://localhost:3000/api/photos/1715601865229 HTTP/1.1
+DELETE http://localhost:3000/api/photos/1716291262776 HTTP/1.1
 
 ### PATCH - updatuj wg id
-PATCH  http://localhost:3000/api/photos/1716215272737 HTTP/1.1
+PATCH  http://localhost:3000/api/photos/1716291262776 HTTP/1.1
 
 {
 "test": "dzik",
 "dest": 12343352
 }
 
-###
+### dodanie jednego taga
 
-POST http://localhost:3000/api/photos/tags/1716215629226 HTTP/1.1
+PATCH http://localhost:3000/api/photos/tags/1716291262776 HTTP/1.1
 
 {
     "value": "#kekw"
 }
 
-########
+######## dodanie wielu tagów
 
-POST http://localhost:3000/api/photos/tags/mass/1716215665241 HTTP/1.1
+PATCH http://localhost:3000/api/photos/tags/mass/1716291262776 HTTP/1.1
 
 {
     "value": ["#raz", "#dwa"]
