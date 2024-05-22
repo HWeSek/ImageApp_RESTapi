@@ -32,7 +32,7 @@ PATCH  http://localhost:3000/api/photos/1716291262776 HTTP/1.1
 
 ### dodanie jednego taga
 
-PATCH http://localhost:3000/api/photos/tags/1716313686940 HTTP/1.1
+PATCH http://localhost:3000/api/photos/tags/1716370712173 HTTP/1.1
 
 {
     "value": "#kekw"
@@ -40,7 +40,7 @@ PATCH http://localhost:3000/api/photos/tags/1716313686940 HTTP/1.1
 
 ######## dodanie wielu tagów
 
-PATCH http://localhost:3000/api/photos/tags/mass/1716291262776 HTTP/1.1
+PATCH http://localhost:3000/api/photos/tags/mass/1716370712173 HTTP/1.1
 
 {
     "value": ["#raz", "#dwa"]

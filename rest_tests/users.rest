@@ -1,0 +1,14 @@
+GET http://localhost:3000/api/user HTTP/1.1
+
+###
+POST http://localhost:3000/api/user/register HTTP/1.1
+
+{    
+   "name": "name",
+   "lastName": "lastName",
+   "email":"name@email.pl",
+   "password":"password"
+}
+
+
+
