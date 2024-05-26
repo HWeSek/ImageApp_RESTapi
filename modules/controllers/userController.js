@@ -1,6 +1,6 @@
 import "dotenv/config";
-import getRequestData from "./utils.js";
-import { users_array } from "./model.js";
+import getRequestData from "../utils.js";
+import { users_array } from "../model.js";
 import { validate as email_validate } from "email-validator";
 import bcryptjs from "bcryptjs";
 const { hash, compare } = bcryptjs;
@@ -26,7 +26,7 @@ const userController = {
                     verified: false
                 }
                 users_array.push(new_user);
-                const confirmation_token = sign(new_user, process.env.SECRET_KEY, { expiresIn: "1h" })
+                const confirmation_token = sign({ name: new_user.name, email: new_user.email, timestamp: Date.now() }, process.env.SECRET_KEY, { expiresIn: "1h" })
                 res.writeHead(201, "Content-type: application/json;charset=utf-8")
                 res.write(JSON.stringify({ status: 201, message: `User created! Please verify your account by pasitng this link into your browser: http://localhost:3000/api/user/confirm/${confirmation_token}` }, null, 3));
                 res.end();
@@ -39,7 +39,6 @@ const userController = {
             if (decoded) {
                 let account = users_array.find(user => user.email == decoded.email)
                 account.verified = true;
-                console.log(account);
                 res.writeHead(200, "Content-type: application/json;charset=utf-8")
                 res.write(JSON.stringify({ status: 200, message: `User ${decoded.email} has been verified!` }, null, 3));
                 res.end();
@@ -51,7 +50,30 @@ const userController = {
         }
     },
     userLogin: async (req, res) => {
-        
+        const credentials = JSON.parse(await getRequestData(req));
+        const user = users_array.find(el => el.email == credentials.email);
+        if (user) {
+            if (user.verified) {
+                if (await compare(credentials.password, user.password)) {
+                    let token = sign({ name: user.name, email: user.email, timestamp: Date.now() }, process.env.SECRET_KEY, { expiresIn: "1h" })
+                    res.setHeader('Authorization', 'Bearer ' + token);
+                    res.write(token);
+                    res.end();
+                } else {
+                    res.writeHead(401, "Content-type: application/json;charset=utf-8")
+                    res.write(JSON.stringify({ status: 401, message: "Wrong password!" }, null, 3));
+                    res.end();
+                }
+            } else {
+                res.writeHead(400, "Content-type: application/json;charset=utf-8")
+                res.write(JSON.stringify({ status: 400, message: "Unverified account!" }, null, 3));
+                res.end();
+            }
+        } else {
+            res.writeHead(401, "Content-type: application/json;charset=utf-8")
+            res.write(JSON.stringify({ status: 401, message: "User with given email not found!" }, null, 3));
+            res.end();
+        }
     }
 }
 export default userController

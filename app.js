@@ -1,38 +1,75 @@
 import "dotenv/config";
 import { createServer } from "http";
-import { readFile } from "fs";
 import path from "path";
-import imageRouter from "./modules/imageRouter.js";
-import tagsRouter from "./modules/tagsRouter.js";
-import filtersRouter from "./modules/filtersRouter.js";
-import userRouter from "./modules/userRouter.js";
+import imageRouter from "./modules/routers/imageRouter.js";
+import tagsRouter from "./modules/routers/tagsRouter.js";
+import filtersRouter from "./modules/routers/filtersRouter.js";
+import userRouter from "./modules/routers/userRouter.js";
+import profileRouter from "./modules/routers/profileRouter.js";
+
+import jsonwebtoken from 'jsonwebtoken';
+
+const { sign, verify } = jsonwebtoken;
+
+import { expired_tokens } from "./modules/model.js";
 
 const __dirname = path.resolve();
 
 createServer(async (req, res) => {
-    //images
-
-    if (req.url.search("/api/photos") != -1) {
-        await imageRouter(req, res)
+    //console.log(req.url, req.method);
+    let authorization = false;
+    if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
+        try {
+            let token = req.headers.authorization.split(" ")[1]
+            let decoded = verify(token, process.env.SECRET_KEY);
+            if (decoded) {
+                authorization = true;
+            }
+            if (expired_tokens.includes(token)) {
+                authorization = false;
+            }
+        } catch (error) {
+            authorization = false;
+        }
     }
 
-    //tags router
-    else if (req.url.search("/api/tags") != -1) {
-        await tagsRouter(req, res)
-    }
 
-    //filters router
-    else if (req.url.search("/api/filters") != -1) {
-        await filtersRouter(req, res)
-    }
+    if (authorization) {
+        //images
+        if (req.url.search("/api/photos") != -1) {
+            await imageRouter(req, res)
+        }
 
-    else if (req.url.search("/api/getimage") != -1) {
-        await filtersRouter(req, res)
-    }
+        //tags router
+        else if (req.url.search("/api/tags") != -1) {
+            await tagsRouter(req, res)
+        }
 
-    else if (req.url.search("/api/user") != -1) {
+        //filters router
+        else if (req.url.search("/api/filters") != -1) {
+            await filtersRouter(req, res)
+        }
+
+        else if (req.url.search("/api/getimage") != -1) {
+            await filtersRouter(req, res)
+        }
+        else if (req.url.search("/api/user") != -1) {
+            await userRouter(req, res)
+        }
+        else if (req.url.search("/api/profile") != -1) {
+            await profileRouter(req, res)
+        }
+        else if (req.url.search("/api/logout") != -1) {
+            await profileRouter(req, res)
+        }
+    } else if (req.url.search("/api/user") != -1) {
         await userRouter(req, res)
+    } else {
+        res.writeHead(401, "Content-type: application/json;charset=utf-8")
+        res.write(JSON.stringify({ status: 401, message: "Not authorized!" }, null, 3));
+        res.end();
     }
+
 
 
 })

@@ -10,5 +10,11 @@ POST http://localhost:3000/api/user/register HTTP/1.1
    "password":"password"
 }
 
+####
 
+POST http://localhost:3000/api/user/login HTTP/1.1 
 
+{
+  "email":"name@email.pl",
+  "password":"password"
+}

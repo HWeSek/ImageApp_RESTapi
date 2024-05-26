@@ -1,5 +1,5 @@
-import { files_array, tags_array } from "./model.js";
-import getRequestData from "./utils.js";
+import { files_array, tags_array } from "../model.js";
+import getRequestData from "../utils.js";
 
 const jsonController = {
     addJSON: (data) => {

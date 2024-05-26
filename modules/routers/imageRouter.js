@@ -1,9 +1,9 @@
-import { files_array } from "./model.js";
-import jsonController from "./jsonController.js";
-import fileController from "./fileController.js";
+import { files_array } from "../model.js";
+import jsonController from "../controllers/jsonController.js";
+import fileController from "../controllers/fileController.js";
 
 const imageRouter = async (request, response) => {
-    console.log(request.url, request.method);
+
     switch (request.method) {
         case "GET":
             if (request.url == "/api/photos") {

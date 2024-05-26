@@ -1,9 +1,9 @@
-import { files_array } from "./model.js";
-import filtersController from "./filtersController.js";
+import { files_array } from "../model.js";
+import filtersController from "../controllers/filtersController.js";
 import { readFileSync } from "fs";
 
 const filtersRouter = async (request, response) => {
-    console.log(request.url, request.method);
+
     switch (request.method) {
         case "GET":
             if (request.url == "/api/filters") {

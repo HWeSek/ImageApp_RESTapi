@@ -1,8 +1,8 @@
-import userController from "./userController.js";
-import { users_array } from "./model.js";
+import userController from "../controllers/userController.js";
+import { users_array } from "../model.js";
 
 const userRouter = async (request, response) => {
-    console.log(request.url, request.method);
+
     switch (request.method) {
         case "GET":
             if (request.url == "/api/user") {
@@ -36,7 +36,7 @@ const userRouter = async (request, response) => {
             if (request.url == "/api/user/register") {
                 userController.registerUser(request, response);
             } else if (request.url == "/api/user/login") {
-
+                userController.userLogin(request, response);
             } else {
                 response.writeHead(404, "Content-type: application/json;charset=utf-8")
                 response.write(JSON.stringify({ status: 404, message: `route does not exist` }, null, 3));

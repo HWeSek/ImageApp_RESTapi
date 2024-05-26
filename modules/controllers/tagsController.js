@@ -1,5 +1,5 @@
-import { tags_array } from "./model.js";
-import getRequestData from "./utils.js";
+import { tags_array } from "../model.js";
+import getRequestData from "../utils.js";
 
 const tagsController = {
     addTag: async (req, res) => {

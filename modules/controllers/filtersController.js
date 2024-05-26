@@ -1,6 +1,6 @@
-import { files_array, tags_array } from "./model.js";
+import { files_array, tags_array } from "../model.js";
 import { readFile } from "fs";
-import getRequestData from "./utils.js";
+import getRequestData from "../utils.js";
 import sharp from "sharp";
 
 const filtersController = {

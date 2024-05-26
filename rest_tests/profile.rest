@@ -1,0 +1,34 @@
+GET http://localhost:3000/api/profile HTTP/1.1
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNjczMDMwNTYxOSwiaWF0IjoxNzE2NzMwMzA1LCJleHAiOjE3MTY3MzM5MDV9.1jYNV5KE1DtmDsawJqRwArCanKdVo2Sbiao-7-95ssk
+
+
+
+
+####
+PATCH http://localhost:3000/api/profile HTTP/1.1
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNjczMDMwNTYxOSwiaWF0IjoxNzE2NzMwMzA1LCJleHAiOjE3MTY3MzM5MDV9.1jYNV5KE1DtmDsawJqRwArCanKdVo2Sbiao-7-95ssk
+
+
+
+{
+    "name": "romek",
+    "lastName": "Wesoly"
+}
+
+#####profilowe
+POST http://localhost:3000/api/profile HTTP/1.1
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNjczMDMwNTYxOSwiaWF0IjoxNzE2NzMwMzA1LCJleHAiOjE3MTY3MzM5MDV9.1jYNV5KE1DtmDsawJqRwArCanKdVo2Sbiao-7-95ssk
+Content-Type: multipart/form-data; boundary=----FormBoundary1234
+
+------FormBoundary1234
+Content-Disposition: form-data; name="file"; filename="input.png"
+Content-Type: image/png
+
+< ./w.jpg
+
+------FormBoundary1234
+####
+GET http://localhost:3000/api/logout HTTP/1.1
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNjczMDMwNTYxOSwiaWF0IjoxNzE2NzMwMzA1LCJleHAiOjE3MTY3MzM5MDV9.1jYNV5KE1DtmDsawJqRwArCanKdVo2Sbiao-7-95ssk
+
+
