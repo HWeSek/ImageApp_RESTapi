@@ -1,7 +1,7 @@
 GET http://localhost:3000/api/profile/name@email.pl HTTP/1.1
 
 ###
-GET http://localhost:3000/api/profile/picture/name@email.pl HTTP/1.1
+GET http://localhost:3000/api/profile/picture/a@b.pl HTTP/1.1
 
 
 
@@ -17,7 +17,7 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsI
 
 #####profilowe
 POST http://localhost:3000/api/profile HTTP/1.1
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNzkzNzk0MjgwNywiaWF0IjoxNzE3OTM3OTQyLCJleHAiOjE3MTc5MzkxNDJ9.vN3HivsCmC6tMqZRL6xJdJ9ruwDgv75MhnWuRkoUVNU
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYSIsImVtYWlsIjoiYUBiLnBsIiwidGltZXN0YW1wIjoxNzE3OTQyMTA1NDE2LCJpYXQiOjE3MTc5NDIxMDUsImV4cCI6MTcxNzk0MzMwNX0.lnzamROenbBBqtTmT2RUVxssBSG6mdvboE5R5tYi3a0
 Content-Type: multipart/form-data; boundary=----FormBoundary1234
 
 ------FormBoundary1234
