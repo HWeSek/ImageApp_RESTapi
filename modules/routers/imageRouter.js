@@ -1,6 +1,8 @@
 import { files_array } from "../model.js";
 import jsonController from "../controllers/jsonController.js";
 import fileController from "../controllers/fileController.js";
+import filtersController from "../controllers/filtersController.js";
+import { readFileSync } from "fs";
 
 const imageRouter = async (request, response) => {
 
@@ -8,12 +10,10 @@ const imageRouter = async (request, response) => {
         case "GET":
             if (request.url == "/api/photos") {
                 response.writeHead(200, "Content-type: application/json;charset=utf-8")
-                if (files_array.length == 1) {
-                    response.write(JSON.stringify(files_array[0], null, 3));
-                } else if (files_array.length > 1) {
+                if (files_array.length > 0) {
                     response.write(JSON.stringify(files_array, null, 3));
                 } else {
-                    response.write(JSON.stringify("NOTHING", null, 3));
+                    response.write(JSON.stringify("There are no posts", null, 3));
                 }
                 response.end()
 
@@ -41,6 +41,25 @@ const imageRouter = async (request, response) => {
                         tags: file.tags
                     }
                     response.write(JSON.stringify(output, null, 4), null, 3);
+                    response.end()
+                } else {
+                    response.writeHead(404, "Content-Type: application/json;charset=utf-8")
+                    response.write(JSON.stringify({ status: 404, message: `file with id ${id} not found` }, null, 3));
+                    response.end()
+                }
+            } else if (new RegExp('^\/api\/getimage\/[0-9]+\/filter\/.+').test(request.url)) {
+                const values = request.url.match('^\/api\/getimage\/([0-9]+)\/filter\/(.+)');
+                const id = values[1];
+                const name = values[2];
+                filtersController.getFilteredImage(response, id, name);
+            } else if (new RegExp('^\/api\/getimage\/[0-9]+').test(request.url)) {
+                let values = request.url.match('^\/api\/getimage\/([0-9]+)');
+                let id = values[1];
+                const file = files_array.find(file => file.id == id);
+                if (file) {
+                    const image = readFileSync(file.url);
+                    response.writeHead(200, "Content-Type: application/json;charset=utf-8")
+                    response.write(image);
                     response.end()
                 } else {
                     response.writeHead(404, "Content-Type: application/json;charset=utf-8")

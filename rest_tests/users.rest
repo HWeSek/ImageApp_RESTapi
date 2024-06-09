@@ -18,3 +18,12 @@ POST http://localhost:3000/api/user/login HTTP/1.1
   "email":"name@email.pl",
   "password":"password"
 }
+
+
+####
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNzkzODA0ODUyMiwiaWF0IjoxNzE3OTM4MDQ4LCJleHAiOjE3MTc5MzkyNDh9.0Bb7nHUwg71sZV_iE2OGy-dDx7sBWEjIddeoKs8J4eM
+
+
+
+
+

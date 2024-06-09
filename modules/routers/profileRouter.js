@@ -2,10 +2,22 @@ import { users_array } from "../model.js";
 import profileController from "../controllers/profileController.js";
 
 const profileRouter = async (request, response) => {
+    console.log(request.url);
     switch (request.method) {
         case "GET":
             if (request.url == "/api/profile") {
-                profileController.getProfileData(request, response);
+                profileController.getOwnProfileData(request, response);
+                console.log('test');
+            } else if (new RegExp('^\/api\/profile\/picture\/.+').test(request.url)) {
+                console.log('test3');
+                let values = request.url.match('^\/api\/profile\/picture\/(.+)');
+                let email = values[1];
+                profileController.getProfilePicture(response, email);
+            } else if (new RegExp('^\/api\/profile\/.+').test(request.url)) {
+                console.log('test2');
+                let values = request.url.match('^\/api\/profile\/(.+)');
+                let email = values[1];
+                profileController.getProfileData(response, email);
             } else if (request.url == "/api/logout") {
                 profileController.logout(request, response);
             }

@@ -9,14 +9,25 @@ import profileRouter from "./modules/routers/profileRouter.js";
 
 import jsonwebtoken from 'jsonwebtoken';
 
-const { sign, verify } = jsonwebtoken;
+const { verify } = jsonwebtoken;
 
 import { expired_tokens } from "./modules/model.js";
 
 const __dirname = path.resolve();
 
 createServer(async (req, res) => {
-    //console.log(req.url, req.method);
+    ////CORS
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Request-Method', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PATCH, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', '*, Authorization');
+
+    if (req.method === 'OPTIONS') {
+        res.writeHead(200);
+        res.end();
+        return;
+    }
+    /////
     let authorization = false;
     if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
         try {
@@ -49,10 +60,6 @@ createServer(async (req, res) => {
         else if (req.url.search("/api/filters") != -1) {
             await filtersRouter(req, res)
         }
-
-        else if (req.url.search("/api/getimage") != -1) {
-            await filtersRouter(req, res)
-        }
         else if (req.url.search("/api/user") != -1) {
             await userRouter(req, res)
         }
@@ -64,6 +71,10 @@ createServer(async (req, res) => {
         }
     } else if (req.url.search("/api/user") != -1) {
         await userRouter(req, res)
+    } else if ((req.url.search("/api/photos") != -1 || req.url.search("/api/getimage") != -1) && req.method == "GET") {
+        await imageRouter(req, res)
+    } else if ((req.url.search("/api/profile") != -1) && req.method == "GET") {
+        await profileRouter(req, res)
     } else {
         res.writeHead(401, "Content-type: application/json;charset=utf-8")
         res.write(JSON.stringify({ status: 401, message: "Not authorized!" }, null, 3));

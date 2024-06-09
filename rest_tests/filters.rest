@@ -1,15 +1,16 @@
 ####
-GET http://localhost:3000/api/filters/metadata/1716370712173 HTTP/1.1
+GET http://localhost:3000/api/filters/metadata/1716734482486 HTTP/1.1
 
 ####
-GET http://localhost:3000/api/getimage/1716370712173 HTTP/1.1
+GET http://localhost:3000/api/getimage/1717939990865 HTTP/1.1
 
 #####
 
 PATCH http://localhost:3000/api/filters HTTP/1.1
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNzYxNDc4NjMxNiwiaWF0IjoxNzE3NjE0Nzg2LCJleHAiOjE3MTc2MTU5ODZ9.A0atS1nsAS_7-8OqnP062ZHh2BSzwa0hS_xKIjSvRAQ
 
 {   
-  "id":1716314793264,
+  "id":1717614803818,
   "filter": "negate",
   "rotate": 157,
   "rgb": {"r": 23, "g": 20, "b": 50},
@@ -17,6 +18,7 @@ PATCH http://localhost:3000/api/filters HTTP/1.1
 }
 
 ####
-GET http://localhost:3000/api/getimage/1716370712173/filter/negate HTTP/1.1
+GET http://localhost:3000/api/getimage/1716734482486/filter/negate HTTP/1.1
+
 
 

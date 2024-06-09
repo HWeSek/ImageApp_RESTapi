@@ -7,9 +7,7 @@ const tagsRouter = async (request, response) => {
         case "GET":
             if (request.url == "/api/tags") {
                 response.writeHead(200, "Content-type: application/json;charset=utf-8")
-                if (tags_array.length == 1) {
-                    response.write(JSON.stringify(tags_array[0], null, 3));
-                } else if (tags_array.length > 1) {
+                if (tags_array.length > 0) {
                     response.write(JSON.stringify(tags_array, null, 3));
                 } else {
                     response.write(JSON.stringify("NOTHING", null, 3));

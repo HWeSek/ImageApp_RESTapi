@@ -1,13 +1,13 @@
-GET http://localhost:3000/api/profile HTTP/1.1
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNjczMDMwNTYxOSwiaWF0IjoxNzE2NzMwMzA1LCJleHAiOjE3MTY3MzM5MDV9.1jYNV5KE1DtmDsawJqRwArCanKdVo2Sbiao-7-95ssk
+GET http://localhost:3000/api/profile/name@email.pl HTTP/1.1
 
+###
+GET http://localhost:3000/api/profile/picture/name@email.pl HTTP/1.1
 
 
 
 ####
 PATCH http://localhost:3000/api/profile HTTP/1.1
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNjczMDMwNTYxOSwiaWF0IjoxNzE2NzMwMzA1LCJleHAiOjE3MTY3MzM5MDV9.1jYNV5KE1DtmDsawJqRwArCanKdVo2Sbiao-7-95ssk
-
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNzYxNDc4NjMxNiwiaWF0IjoxNzE3NjE0Nzg2LCJleHAiOjE3MTc2MTU5ODZ9.A0atS1nsAS_7-8OqnP062ZHh2BSzwa0hS_xKIjSvRAQ
 
 
 {
@@ -17,7 +17,7 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsI
 
 #####profilowe
 POST http://localhost:3000/api/profile HTTP/1.1
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNjczMDMwNTYxOSwiaWF0IjoxNzE2NzMwMzA1LCJleHAiOjE3MTY3MzM5MDV9.1jYNV5KE1DtmDsawJqRwArCanKdVo2Sbiao-7-95ssk
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNzkzNzk0MjgwNywiaWF0IjoxNzE3OTM3OTQyLCJleHAiOjE3MTc5MzkxNDJ9.vN3HivsCmC6tMqZRL6xJdJ9ruwDgv75MhnWuRkoUVNU
 Content-Type: multipart/form-data; boundary=----FormBoundary1234
 
 ------FormBoundary1234
@@ -29,6 +29,7 @@ Content-Type: image/png
 ------FormBoundary1234
 ####
 GET http://localhost:3000/api/logout HTTP/1.1
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNjczMDMwNTYxOSwiaWF0IjoxNzE2NzMwMzA1LCJleHAiOjE3MTY3MzM5MDV9.1jYNV5KE1DtmDsawJqRwArCanKdVo2Sbiao-7-95ssk
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNjczNDM1MzM5OCwiaWF0IjoxNzE2NzM0MzUzLCJleHAiOjE3MTY3MzU1NTN9.ht4CdAYOOWFZybuS7EmV098BV6zhnY1SjXwoozwGInY
+
 
 

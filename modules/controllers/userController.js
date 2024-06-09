@@ -28,7 +28,7 @@ const userController = {
                 users_array.push(new_user);
                 const confirmation_token = sign({ name: new_user.name, email: new_user.email, timestamp: Date.now() }, process.env.SECRET_KEY, { expiresIn: "1h" })
                 res.writeHead(201, "Content-type: application/json;charset=utf-8")
-                res.write(JSON.stringify({ status: 201, message: `User created! Please verify your account by pasitng this link into your browser: http://localhost:3000/api/user/confirm/${confirmation_token}` }, null, 3));
+                res.write(JSON.stringify({ status: 201, message: `http://localhost:3000/api/user/confirm/${confirmation_token}` }, null, 3));
                 res.end();
             }
         }
@@ -55,7 +55,7 @@ const userController = {
         if (user) {
             if (user.verified) {
                 if (await compare(credentials.password, user.password)) {
-                    let token = sign({ name: user.name, email: user.email, timestamp: Date.now() }, process.env.SECRET_KEY, { expiresIn: "1h" })
+                    let token = sign({ name: user.name, email: user.email, timestamp: Date.now() }, process.env.SECRET_KEY, { expiresIn: "20m" })
                     res.setHeader('Authorization', 'Bearer ' + token);
                     res.write(token);
                     res.end();

@@ -7,9 +7,7 @@ const userRouter = async (request, response) => {
         case "GET":
             if (request.url == "/api/user") {
                 response.writeHead(200, "Content-type: application/json;charset=utf-8")
-                if (users_array.length == 1) {
-                    response.write(JSON.stringify(users_array[0], null, 3));
-                } else if (users_array.length > 1) {
+                if (users_array.length > 0) {
                     response.write(JSON.stringify(users_array, null, 3));
                 } else {
                     response.write(JSON.stringify("No users have been added", null, 3));
