@@ -1,5 +1,5 @@
 POST http://localhost:3000/api/photos HTTP/1.1
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYSIsImVtYWlsIjoiYUBiLnBsIiwidGltZXN0YW1wIjoxNzE3OTQwMzMyMjg1LCJpYXQiOjE3MTc5NDAzMzIsImV4cCI6MTcxNzk0MTUzMn0.u_Pn3dZ0fsjPjMlYG8PIHOx76vtS3gjdfahYgwT1HDQ
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNzk3NzMyNzI4NCwiaWF0IjoxNzE3OTc3MzI3LCJleHAiOjE3MTc5ODgxMjd9.k04PMF3byYLgRn6sZ1Qbi8oHmghHbHhVk4XPCriAcLQ
 Content-Type: multipart/form-data; boundary=----FormBoundary1234
 
 ------FormBoundary1234
@@ -41,11 +41,11 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsI
 
 ######## dodanie wielu tagów
 
-PATCH http://localhost:3000/api/photos/tags/mass/1716734482486 HTTP/1.1
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNjczNDM1MzM5OCwiaWF0IjoxNzE2NzM0MzUzLCJleHAiOjE3MTY3MzU1NTN9.ht4CdAYOOWFZybuS7EmV098BV6zhnY1SjXwoozwGInY
+PATCH http://localhost:3000/api/photos/tags/mass/1717977352014 HTTP/1.1
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNzk3NzMyNzI4NCwiaWF0IjoxNzE3OTc3MzI3LCJleHAiOjE3MTc5ODgxMjd9.k04PMF3byYLgRn6sZ1Qbi8oHmghHbHhVk4XPCriAcLQ
 
 {
-    "value": ["#raz", "#dwa"]
+    "value": ["#raz", "#raz"]
 }
 
 

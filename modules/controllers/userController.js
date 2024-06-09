@@ -55,7 +55,7 @@ const userController = {
         if (user) {
             if (user.verified) {
                 if (await compare(credentials.password, user.password)) {
-                    let token = sign({ name: user.name, email: user.email, timestamp: Date.now() }, process.env.SECRET_KEY, { expiresIn: "20m" })
+                    let token = sign({ name: user.name, email: user.email, timestamp: Date.now() }, process.env.SECRET_KEY, { expiresIn: "3h" })
                     res.setHeader('Authorization', 'Bearer ' + token);
                     res.write(token);
                     res.end();

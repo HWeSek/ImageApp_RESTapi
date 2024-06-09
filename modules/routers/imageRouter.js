@@ -57,7 +57,11 @@ const imageRouter = async (request, response) => {
                 let id = values[1];
                 const file = files_array.find(file => file.id == id);
                 if (file) {
-                    const image = readFileSync(file.url);
+                    const stateFlag = file.lastChange;
+
+                    const state = file.history.find(file => file.status == stateFlag)
+
+                    const image = readFileSync(state.url);
                     response.writeHead(200, "Content-Type: application/json;charset=utf-8")
                     response.write(image);
                     response.end()

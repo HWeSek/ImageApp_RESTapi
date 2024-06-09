@@ -13,7 +13,7 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsI
 
 ###
 POST http://localhost:3000/api/tags HTTP/1.1
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNzYxNDc4NjMxNiwiaWF0IjoxNzE3NjE0Nzg2LCJleHAiOjE3MTc2MTU5ODZ9.A0atS1nsAS_7-8OqnP062ZHh2BSzwa0hS_xKIjSvRAQ
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmFudXN6IiwiZW1haWwiOiJhQGIucGwiLCJ0aW1lc3RhbXAiOjE3MTc5NzE4ODMyNzMsImlhdCI6MTcxNzk3MTg4MywiZXhwIjoxNzE3OTczMDgzfQ.1LmeTDuA3udTXtnk2kDyHLvYTfMSFfHUvcPTtK032iQ
 
 {
     "value": "#test"

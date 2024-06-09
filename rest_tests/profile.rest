@@ -1,4 +1,4 @@
-GET http://localhost:3000/api/profile HTTP/1.1
+GET http://localhost:3000/api/profile/asd HTTP/1.1
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiamFuIiwiZW1haWwiOiJkQHMucGwiLCJ0aW1lc3RhbXAiOjE3MTc5NTQ4NTQ5OTUsImlhdCI6MTcxNzk1NDg1NCwiZXhwIjoxNzE3OTU2MDU0fQ.43NwoGccVnmcwBdPQM-O1tmDQtOyeX_AED19XglgV90
 ###
 GET http://localhost:3000/api/profile/picture/a@b.pl HTTP/1.1
