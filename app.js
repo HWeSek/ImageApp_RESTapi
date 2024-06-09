@@ -13,7 +13,7 @@ const { verify } = jsonwebtoken;
 
 import { expired_tokens } from "./modules/model.js";
 
-const __dirname = path.resolve();
+
 
 createServer(async (req, res) => {
     ////CORS

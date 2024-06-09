@@ -1,5 +1,5 @@
-GET http://localhost:3000/api/profile/name@email.pl HTTP/1.1
-
+GET http://localhost:3000/api/profile HTTP/1.1
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiamFuIiwiZW1haWwiOiJkQHMucGwiLCJ0aW1lc3RhbXAiOjE3MTc5NTQ4NTQ5OTUsImlhdCI6MTcxNzk1NDg1NCwiZXhwIjoxNzE3OTU2MDU0fQ.43NwoGccVnmcwBdPQM-O1tmDQtOyeX_AED19XglgV90
 ###
 GET http://localhost:3000/api/profile/picture/a@b.pl HTTP/1.1
 
@@ -7,7 +7,7 @@ GET http://localhost:3000/api/profile/picture/a@b.pl HTTP/1.1
 
 ####
 PATCH http://localhost:3000/api/profile HTTP/1.1
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsImVtYWlsIjoibmFtZUBlbWFpbC5wbCIsInRpbWVzdGFtcCI6MTcxNzYxNDc4NjMxNiwiaWF0IjoxNzE3NjE0Nzg2LCJleHAiOjE3MTc2MTU5ODZ9.A0atS1nsAS_7-8OqnP062ZHh2BSzwa0hS_xKIjSvRAQ
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiamFuIiwiZW1haWwiOiJkQHMucGwiLCJ0aW1lc3RhbXAiOjE3MTc5NTQ4NTQ5OTUsImlhdCI6MTcxNzk1NDg1NCwiZXhwIjoxNzE3OTU2MDU0fQ.43NwoGccVnmcwBdPQM-O1tmDQtOyeX_AED19XglgV90
 
 
 {
@@ -17,7 +17,7 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsI
 
 #####profilowe
 POST http://localhost:3000/api/profile HTTP/1.1
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYSIsImVtYWlsIjoiYUBiLnBsIiwidGltZXN0YW1wIjoxNzE3OTQyMTA1NDE2LCJpYXQiOjE3MTc5NDIxMDUsImV4cCI6MTcxNzk0MzMwNX0.lnzamROenbBBqtTmT2RUVxssBSG6mdvboE5R5tYi3a0
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRhbSIsImVtYWlsIjoiYUBiLnBsIiwidGltZXN0YW1wIjoxNzE3OTY1MDMxNzExLCJpYXQiOjE3MTc5NjUwMzEsImV4cCI6MTcxNzk2NjIzMX0.iv1T1lk_2s0bMDRA96RnZS4g6rmCI1O_-Up-3QKg64o
 Content-Type: multipart/form-data; boundary=----FormBoundary1234
 
 ------FormBoundary1234

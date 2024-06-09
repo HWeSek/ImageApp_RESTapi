@@ -14,6 +14,7 @@ import formidable from "formidable";
 
 import { readFileSync } from "fs";
 
+const __dirname = path.resolve()
 
 const profileController = {
     getOwnProfileData: (req, res) => {
@@ -59,9 +60,10 @@ const profileController = {
     },
     getProfilePicture: (res, email) => {
         try {
-            let image = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+
+            let image = readFileSync(path.join(__dirname, 'blank_pfp.png'));
             try {
-                image = readFileSync(`C:\\Users\\cicho\\Desktop\\Aplikacje Serwerowe\\Pseudo-Instagram-App\\upload\\${email}\\pfp.png`);
+                image = readFileSync(path.join(__dirname, 'upload', email, 'pfp.png'));
             } catch (error) {
 
             }
